@@ -11,13 +11,13 @@
         <div *ngFor="let course of courses; let i = index" [attr.data-index]="i">
             <div *ngIf="courses[i - 1]">
                 <ion-list-header *ngIf="course.dayofweek != courses[i - 1].dayofweek">
-                    <h2>{{weekdays[course.dayofweek - 1]}}</h2>
+                    <h2><b>{{weekdays[course.dayofweek - 1]}}</b></h2>
                 </ion-list-header>
             </div>
 
             <div *ngIf="!courses[i -1]">
                 <ion-list-header>
-                    <h2>{{weekdays[i]}}</h2>
+                    <h2><b>{{weekdays[i]}}</b></h2>
                 </ion-list-header>
             </div>
 
