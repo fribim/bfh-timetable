@@ -7,22 +7,27 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngIf="courses">
-    <ion-list-header>
-      Montag
-    </ion-list-header>
-    <ion-item *ngFor="let course of courses">
-      <ion-grid>
-        <ion-row>
-          {{weekdays[course.dayofweek - 1]}}
-        </ion-row>
-        <ion-row>
-          {{course.name_de}}
-        </ion-row>
-        <ion-row>
-          {{course.start}} - {{course.end}}
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </ion-list>
+    <ion-list *ngIf="courses">
+        <div *ngFor="let course of courses; let i = index" [attr.data-index]="i">
+            <div *ngIf="courses[i - 1]">
+                <ion-list-header *ngIf="course.dayofweek != courses[i - 1].dayofweek">
+                    {{weekdays[course.dayofweek - 1]}}
+                </ion-list-header>
+            </div>
+
+            <div *ngIf="!courses[i -1]">
+                <ion-list-header>
+                    {{weekdays[i]}}
+                </ion-list-header>
+            </div>
+
+            <ion-item>
+            <b>{{course.name_de}}</b>
+            <div>
+                <div>Raum: {{course.room}} / {{course.place}}</div>
+                <div>{{course.start | slice:0:5 }} - {{course.end | slice:0:5}}</div>
+            </div>
+            </ion-item>
+        </div>
+    </ion-list>
 </ion-content>
