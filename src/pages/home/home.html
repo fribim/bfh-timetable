@@ -1,14 +1,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Stundenplan I1a
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list *ngIf="courses">
+    <ion-list-header>
+      Montag
+    </ion-list-header>
+    <ion-item *ngFor="let course of courses">
+      <ion-grid>
+        <ion-row>
+          {{weekdays[course.dayofweek - 1]}}
+        </ion-row>
+        <ion-row>
+          {{course.name_de}}
+        </ion-row>
+        <ion-row>
+          {{course.start}} - {{course.end}}
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
 </ion-content>
