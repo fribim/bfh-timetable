@@ -1,0 +1,11 @@
+page-today {
+  ion-list-header {
+    border-top: none;
+  }
+
+  .list-header-md {
+    margin-bottom: 0px;
+    border-top: unset;
+    color: color($colors, secondary);
+  }
+}

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Heute I1a
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button large (click)="openWeekView()">
+        <ion-icon name="calendar"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="today">
+    <ion-list-header>
+      <h2><b>{{weekdays[dayNumber]}}</b></h2>
+    </ion-list-header>
+  </div>
+  <ion-list *ngIf="today">
+      <ion-item *ngFor="let course of today">
+        <b>{{course.name_de}}</b>
+        <div>
+          <div>Raum: {{course.room}} / {{course.place}}</div>
+          <div>{{course.start | slice:0:5 }} - {{course.end | slice:0:5}}</div>
+        </div>
+      </ion-item>
+  </ion-list>
+</ion-content>
