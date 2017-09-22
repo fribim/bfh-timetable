@@ -14,7 +14,7 @@
 <ion-content padding>
   <div *ngIf="today">
     <ion-list-header>
-      <h2><b>{{weekdays[dayNumber]}}</b></h2>
+      <h2><b>{{weekdays[dayNumber - 1]}}</b></h2>
     </ion-list-header>
   </div>
   <ion-list *ngIf="today">

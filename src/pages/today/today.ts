@@ -31,7 +31,8 @@ export class TodayPage {
       private navCtrl: NavController
   ) {
     var day = new Date();
-    this.dayNumber = day.getDay() - 1;
+    this.dayNumber = day.getDay();
+    console.log(this.dayNumber);
   }
 
   ionViewDidLoad() {
@@ -45,7 +46,7 @@ export class TodayPage {
     this.service.getTimeTable().then((data) => {
       loader.dismiss();
       this.courses = _.filter(data.json().data, { classname: 'I1a' });
-      this.today = _.filter(data.json().data, { classname: 'I1a', dayofweek: 1 });
+      this.today = _.filter(data.json().data, { classname: 'I1a', dayofweek: this.dayNumber });
     }).catch((ex) => {
       loader.dismiss();
       this.couldNotLoadData();
