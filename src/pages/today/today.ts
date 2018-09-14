@@ -45,8 +45,8 @@ export class TodayPage {
 
     this.service.getTimeTable().then((data) => {
       loader.dismiss();
-      this.courses = _.filter(data.json().data, { classname: 'I1a' });
-      this.today = _.filter(data.json().data, { classname: 'I1a', dayofweek: this.dayNumber });
+      this.courses = _.filter(data.json().data, { classname: 'I2a' });
+      this.today = _.filter(data.json().data, { classname: 'I2a', dayofweek: this.dayNumber });
     }).catch((ex) => {
       loader.dismiss();
       this.couldNotLoadData();
